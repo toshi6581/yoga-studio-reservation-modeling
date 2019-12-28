@@ -1,0 +1,27 @@
+{
+    "name": "tohi6581/yoga-studio-reservation-modeling",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ToshihiroArai",
+            "email": "toshi3arai333@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "YogaStudioReservationModeling\\" : "src/domain/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "YogaStudioReservationModeling\\Test\\" : "test/domain/"
+        }
+    }
+}
