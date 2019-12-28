@@ -31,6 +31,10 @@ class AvailableLessonTest extends TestCase
                 'remaining' => 3,
                 'expected' => 1,
             ],
+            '3枠未満' => [
+                'remaining' => 2,
+                'expected' => 1,
+            ],
             '3枠より多くある' => [
                 'remaining' => 4,
                 'expected' => 2,

@@ -17,9 +17,11 @@ class AvailableLesson
         if ($remaining === 0) {
             return 0;
         }
-        if ($remaining === 3) {
+
+        if ($remaining <= 3) {
             return 1;
         }
+
         return 2;
     }
 }
