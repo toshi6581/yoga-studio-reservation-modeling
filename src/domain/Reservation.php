@@ -13,11 +13,14 @@ class Reservation
     //予約希望人数が空いているレッスン枠以上であればfalseを返す
     // レッスン（スタジオと講師とレッスンの内容） → レッスン枠（何曜日の何時からやります。人数、最大人数（＝スタジオの最大人数と同じ））
     /**
+     * @param LessonScheduleSlot $slot;
      * @param int $reserverCount
      * @return bool
      */
-    public function makeReservation(/* スケジュール枠, */int $reserverCount): bool
+    public function makeReservation(LessonScheduleSlot $slot, int $reserverCount): bool
     {
-        $remaining = $reserverCount === 1 ? 1 : 0;
+        $remaining = $slot->getRemainingNumberOfAttendee();
+
+        return $remaining >= $reserverCount;
     }
 }

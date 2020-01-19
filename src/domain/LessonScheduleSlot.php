@@ -9,7 +9,7 @@ namespace YogaStudioReservationModeling;
 
 class LessonScheduleSlot
 {
-    // レッスン（スタジオと講師とレッスンの内容） → 
+    // レッスン（スタジオと講師とレッスンの内容） →
     // private $studio;
     // private $teacher;
     //今は$lessonだけでOK。こんな感じで値を取る$lesson->studio->maxAttendee 
@@ -19,19 +19,17 @@ class LessonScheduleSlot
     private $startLesson;
     private $endLesson;
     private $currentAttendee;
-    private $maxAttendee;
 
-    public function __construct($lesson, $startLesson, $endLesson, $currentAttendee, $maxAttendee)
+    public function __construct(Lesson $lesson, $startLesson, $endLesson, $currentAttendee)
     {
         $this->lesson = $lesson;
         $this->startLesson = $startLesson;
         $this->endLesson = $endLesson;
         $this->currentAttendee = $currentAttendee;
-        $this->maxAttendee = $maxAttendee;
     }
 
     public function getRemainingNumberOfAttendee(): int
     {
-        return $this->maxAttendee - $this->currentAttendee;
+        return $this->lesson->getMaxAttendee() - $this->currentAttendee;
     }
 }

@@ -5,6 +5,8 @@ namespace YogaStudioReservationModeling\Test;
 
 use PHPUnit\Framework\TestCase;
 use YogaStudioReservationModeling\AvailableLesson;
+use YogaStudioReservationModeling\Lesson;
+use YogaStudioReservationModeling\LessonScheduleSlot;
 use YogaStudioReservationModeling\Reservation;
 
 class ReservationTest extends TestCase
@@ -20,7 +22,10 @@ class ReservationTest extends TestCase
     {
         $reservation = new Reservation();
 
-        $actual = $reservation->makeReservation($reserverCount);
+        $lesson = new Lesson(['maxAttendee' => 10]);
+        $slot = new LessonScheduleSlot($lesson, null, null, 9);
+
+        $actual = $reservation->makeReservation($slot, $reserverCount);
 
         $this->assertSame($expected, $actual, '予約処理の結果が正しいこと');
     }
