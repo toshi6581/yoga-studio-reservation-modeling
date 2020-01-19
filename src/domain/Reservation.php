@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace YogaStudioReservationModeling;
 
@@ -18,9 +19,5 @@ class Reservation
     public function makeReservation(/* スケジュール枠, */int $reserverCount): bool
     {
         $remaining = $reserverCount === 1 ? 1 : 0;
-        $availableLesson = new AvailableLesson();
-        $availability = $availableLesson->getAvailability($remaining);
-
-        return $availability !== 0;
     }
 }

@@ -15,24 +15,23 @@ class LessonScheduleSlot
     //今は$lessonだけでOK。こんな感じで値を取る$lesson->studio->maxAttendee 
     private $lesson;
 
-    //レッスン枠（何曜日の何時からやります。人数、最大人数（＝スタジオの最大人数と同じ））
+    //レッスン枠（何曜日の何時からやります。現在の予約人数、最大人数（＝スタジオの最大人数と同じ））
     private $startLesson;
     private $endLesson;
-    private $attendee;
+    private $currentAttendee;
     private $maxAttendee;
 
-    public function __construct($lesson, $startLesson, $endLesson, $attendee, $maxAttendee)
+    public function __construct($lesson, $startLesson, $endLesson, $currentAttendee, $maxAttendee)
     {
         $this->lesson = $lesson;
         $this->startLesson = $startLesson;
         $this->endLesson = $endLesson;
-        $this->attendee = $attendee;
+        $this->currentAttendee = $currentAttendee;
         $this->maxAttendee = $maxAttendee;
     }
 
-    public function getAvailability()
+    public function getRemainingNumberOfAttendee(): int
     {
-        //
-        return $this->something;
+        return $this->maxAttendee - $this->currentAttendee;
     }
 }
