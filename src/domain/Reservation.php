@@ -21,6 +21,12 @@ class Reservation
     {
         $remaining = $slot->getRemainingNumberOfAttendee();
 
-        return $remaining >= $reserverCount;
+        if ($remaining < $reserverCount) {
+            return false;
+        }
+
+        $slot->addAttendee($reserverCount);
+
+        return true;
     }
 }

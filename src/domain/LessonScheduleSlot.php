@@ -32,4 +32,14 @@ class LessonScheduleSlot
     {
         return $this->lesson->getMaxAttendee() - $this->currentAttendee;
     }
+
+    public function getCurrentAttendee(): int
+    {
+        return $this->currentAttendee;
+    }
+
+    public function addAttendee(int $count): void
+    {
+        $this->currentAttendee += $count;
+    }
 }
