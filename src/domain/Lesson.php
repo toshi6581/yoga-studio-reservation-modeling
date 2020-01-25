@@ -1,20 +1,21 @@
 <?php
+
 declare(strict_types=1);
 
 namespace YogaStudioReservationModeling;
 
 class Lesson
 {
-    /** @var array */
+    /** @var Studio */
     private $studio;
 
-    public function __construct($studio)
+    public function __construct(Studio $studio)
     {
         $this->studio = $studio;
     }
 
     public function getMaxAttendee(): int
     {
-        return $this->studio['maxAttendee'];
+        return $this->studio->getMaxAttendee();
     }
 }

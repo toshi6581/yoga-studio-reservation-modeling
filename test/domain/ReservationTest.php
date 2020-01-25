@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace YogaStudioReservationModeling\Test;
@@ -9,6 +10,7 @@ use YogaStudioReservationModeling\Lesson;
 use YogaStudioReservationModeling\LessonScheduleSlot;
 use YogaStudioReservationModeling\Reservation;
 use YogaStudioReservationModeling\ReservationRepository;
+use YogaStudioReservationModeling\Studio;
 
 class ReservationTest extends TestCase
 {
@@ -24,7 +26,8 @@ class ReservationTest extends TestCase
     {
         $reservation = new Reservation();
 
-        $lesson = new Lesson(['maxAttendee' => 10]);
+        $studio = new Studio('studio A', 10);
+        $lesson = new Lesson($studio);
         $slot = new LessonScheduleSlot($lesson, null, null, 9);
 
         $repository = new ReservationRepository();
